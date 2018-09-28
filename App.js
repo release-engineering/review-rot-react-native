@@ -78,11 +78,12 @@ export default class App extends React.Component {
             <RefreshControl refreshing={this.state.isLoading} onRefresh={this.updatePullRequests.bind(this)}/>
           }>
         <Text style={styles.title}>Open Pull Requests</Text>
-        <Text style={styles.subtitle}>Average age:&nbsp;&nbsp;
+        <View style={styles.age}>
+          <Text style={styles.subtitle}>Average age:&nbsp;&nbsp;</Text>
           <View style={[styles.bold, styles.badge]}>
             <Text style={styles.badgeText}>{this.state.age}</Text>
           </View>
-        </Text>
+        </View>
         { pullRequests }
 
         <Text style={[styles.title, styles.titleWIP]}>WIP Pull Requests</Text>
@@ -105,11 +106,15 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 15,
-    marginLeft: 15,
-    marginBottom: 20 
   },
   titleWIP: {
     marginTop: 50,
+    marginBottom: 20
+  },
+  age: {
+    flex: 1,
+    flexDirection: 'row',
+    marginLeft: 15,
     marginBottom: 20
   },
   badge: {
